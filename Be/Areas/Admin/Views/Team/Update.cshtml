@@ -1,0 +1,59 @@
+﻿
+@model UpdateTeamVM
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Team</h4>
+
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <img width="200px" height="200px" src="~/assets/img/@Model.Image">
+                    <input asp-for="Image" hidden="hidden" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Image</label>
+                    <input asp-for="Photo" class="form-control" accept="image/*">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Surname">Surname</label>
+                    <input asp-for="Surname" class="form-control" placeholder="Surname">
+                    <span asp-validation-for="Surname"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FaceLink">Facebook</label>
+                    <input asp-for="FaceLink" placeholder="Facebook">
+                    <span asp-validation-for="FaceLink" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TwitLink">Twitter</label>
+                    <input asp-for="FaceLink" placeholder="Twitter">
+                    <span asp-validation-for="TwitLink" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PlusLink">GooglePlus</label>
+                    <input asp-for="PlusLink" placeholder="GooglePlus">
+                    <span asp-validation-for="PlusLink" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <select asp-for="PositionId" class="form-control" asp-items=" new SelectList (Model.Positions, nameof(Position.Id), nameof(Position.Name))">
+                        <option selected disabled>Choose Position</option>
+                    </select>
+                    <span asp-validation-for="PositionId" class="text-danger"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button action="index" asp-controller="team" class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
